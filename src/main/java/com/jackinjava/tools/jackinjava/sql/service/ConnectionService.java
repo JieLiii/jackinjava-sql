@@ -1,19 +1,15 @@
 package com.jackinjava.tools.jackinjava.sql.service;
 
+import com.jackinjava.tools.jackinjava.sql.model.ConnectionDTO;
+
+import java.sql.Connection;
+
 public interface ConnectionService {
     /**
-     * 初始化驱动
+     * 获取数据库连接对象
      *
-     * @param driverName
+     * @param dto
+     * @return
      */
-    void initDatabaseDriver(String driverName);
-
-    /**
-     * 建立连接
-     *
-     * @param url
-     * @param userName
-     * @param password
-     */
-    void buildConnection(String url, String userName, String password);
+    Connection getConnection(ConnectionDTO dto);
 }
