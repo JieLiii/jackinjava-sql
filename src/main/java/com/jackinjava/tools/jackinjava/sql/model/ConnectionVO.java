@@ -8,35 +8,35 @@ public class ConnectionVO {
     private String userName;
     private String password;
 
-    public String getDatabaseType() {
+    protected String getDatabaseType() {
         return databaseType;
     }
 
-    public void setDatabaseType(String databaseType) {
+    protected void setDatabaseType(String databaseType) {
         this.databaseType = databaseType;
     }
 
-    public String getHost() {
+    protected String getHost() {
         return host;
     }
 
-    public void setHost(String host) {
+    protected void setHost(String host) {
         this.host = host;
     }
 
-    public String getPort() {
+    protected String getPort() {
         return port;
     }
 
-    public void setPort(String port) {
+    protected void setPort(String port) {
         this.port = port;
     }
 
-    public String getDatabase() {
+    protected String getDatabase() {
         return database;
     }
 
-    public void setDatabase(String database) {
+    protected void setDatabase(String database) {
         this.database = database;
     }
 

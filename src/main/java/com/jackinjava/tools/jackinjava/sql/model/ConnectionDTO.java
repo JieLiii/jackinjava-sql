@@ -5,7 +5,7 @@ public class ConnectionDTO {
     private String driverName;
     private String url;
     private static final String MYSQL_NAME = "MySQL";
-    private static final String MYSQL_DRIVER_NAME = "com.mysql.jdbc.Driver";
+    private static final String MYSQL_DRIVER_NAME = "com.mysql.commons.Driver";
 
     private ConnectionDTO() {
     }
@@ -24,7 +24,7 @@ public class ConnectionDTO {
     }
 
     public String getUrl() {
-        StringBuilder builder = new StringBuilder("jdbc:");
+        StringBuilder builder = new StringBuilder("commons:");
         switch (this.connectionVO.getDatabaseType()) {
             case MYSQL_NAME:
                 builder.append("mysql://");
