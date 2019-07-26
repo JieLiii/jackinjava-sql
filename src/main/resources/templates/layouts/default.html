@@ -4,11 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <!-- 引入组件库 -->
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" th:href="@{'/assets/element-ui/index.css'}">
+    <!-- vue.js一定要在element-ui前引入 -->
+    <script type="text/javascript" th:src="@{'/assets/commons/vue.js'}"></script>
+    <script type="text/javascript" th:src="@{'/assets/element-ui/index.js'}"></script>
+
 </head>
 <body>
-
+<div id="app" layout:fragment="content" v-cloak>
+</div>
+<div layout:fragment="footer">
+</div>
 </body>
 </html>

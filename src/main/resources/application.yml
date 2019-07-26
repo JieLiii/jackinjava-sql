@@ -1,6 +1,20 @@
-mybatis:
-  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+spring:
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
+  thymeleaf:
+    cache: false
+server:
+  port: 8188
+  servlet:
+    context-path: /sql
 
+
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
 # 日志
-logging:
-  config: classpath:log4j2.yml
+#logging:
+#  config: classpath:log4j2.yml
+
+

@@ -4,11 +4,14 @@
       layout:decorate="~{layouts/default}">
 <head>
     <title>连接数据库</title>
+    <link th:href="@{'/assets/buildConnection.css'}" rel="stylesheet">
 </head>
 <body>
-    <div>
-
-    </div>
+<div layout:fragment="content">
+    <div>Hello World!</div>
+</div>
+<div layout:fragment="footer">
     <script type="text/javascript" th:src="@{'/assets/buildConnection.js'}"></script>
+</div>
 </body>
 </html>
