@@ -1,0 +1,25 @@
+.el-input {
+    width: auto;
+}
+
+.custom-tree-node {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding-right: 8px;
+}
+
+.tree-table--node {
+    width: 150px;
+}
+
+.tree-table--node-2 {
+    color: green;
+    font-size: 12px;
+}
+
+.tree-table--node-3{
+    color: green;
+    font-size: 12px;
+}

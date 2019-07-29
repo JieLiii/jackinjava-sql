@@ -2,6 +2,7 @@ package com.jackinjava.tools.jackinjava.sql.commons;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.jackinjava.tools.jackinjava.sql.model.ConnectionDTO;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -14,7 +15,7 @@ public class ConnectionUtils {
     static {
         try {
             //加载配置文件
-            properties.load(ConnectionUtils.class.getResourceAsStream("/src/main/resources/druid.properties"));
+            properties = PropertiesLoaderUtils.loadAllProperties("druid.properties");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,7 +48,7 @@ public class ConnectionUtils {
         try {
             return getDataSource(dto).getConnection();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("连接数据库异常", e);
         }
     }
 
@@ -55,7 +56,11 @@ public class ConnectionUtils {
         try {
             connection.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            try{
+                if(connection!=null) connection.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }
         }
     }
 
@@ -63,7 +68,10 @@ public class ConnectionUtils {
         try {
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            try{
+                if(statement!=null) statement.close();
+            }catch(SQLException se2){
+            }
         }
     }
 

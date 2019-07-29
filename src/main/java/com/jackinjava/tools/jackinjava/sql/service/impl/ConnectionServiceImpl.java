@@ -11,9 +11,5 @@ import java.sql.ResultSet;
 
 @Service
 public class ConnectionServiceImpl implements ConnectionService {
-    public ResultSet getDatabase(ConnectionDTO dto){
-        Connection connection = ConnectionUtils.getConnection(dto);
-        String sql = "show databases;";
-        return SqlUtils.query(connection, sql);
-    }
+
 }

@@ -8,7 +8,45 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div>Hello World!</div>
+    <el-form label-position="right" label-width="150px" :model="datasource" size="small">
+        <el-form-item label="数据库类型">
+            <el-select v-model="datasource.databaseType" clearable placeholder="请选择数据库类型">
+                <el-option label="MySQL" value="MySQL"></el-option>
+            </el-select>
+        </el-form-item>
+        <el-form-item label="数据库服务地址">
+            <el-input placeholder="请输入数据库服务地址" clearable v-model="datasource.host"></el-input>
+        </el-form-item>
+        <el-form-item label="服务端口">
+            <el-input placeholder="请输入服务端口" clearable v-model="datasource.port"></el-input>
+        </el-form-item>
+        <el-form-item label="数据库名称">
+            <el-input placeholder="请输入数据库名称" clearable v-model="datasource.database"></el-input>
+        </el-form-item>
+        <el-form-item label="用户名">
+            <el-input placeholder="请输入用户名" clearable v-model="datasource.userName"></el-input>
+        </el-form-item>
+        <el-form-item label="密码">
+            <el-input placeholder="请输入密码" clearable show-password v-model="datasource.password"></el-input>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="onConnect">立即连接</el-button>
+        </el-form-item>
+    </el-form>
+    <div class="tree-table">
+        <el-tree
+            :data="databases"
+            :props="props"
+            :load="loadTables"
+            lazy
+        >
+            <span class="custom-tree-node" slot-scope="{ node, data }">
+                <div class="tree-table--node tree-table--node-1">{{ node.label }}</div>
+                <div class="tree-table--node tree-table--node-2">{{ data.dataType }}</div>
+                <div class="tree-table--node tree-table--node-3">{{ data.length }}</div>
+            </span>
+        </el-tree>
+    </div>
 </div>
 <div layout:fragment="footer">
     <script type="text/javascript" th:src="@{'/assets/buildConnection.js'}"></script>

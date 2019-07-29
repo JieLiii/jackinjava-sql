@@ -5,7 +5,7 @@ public class ConnectionDTO {
     private String driverName;
     private String url;
     private static final String MYSQL_NAME = "MySQL";
-    private static final String MYSQL_DRIVER_NAME = "com.mysql.commons.Driver";
+    private static final String MYSQL_DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
     private ConnectionDTO() {
     }
@@ -24,7 +24,7 @@ public class ConnectionDTO {
     }
 
     public String getUrl() {
-        StringBuilder builder = new StringBuilder("commons:");
+        StringBuilder builder = new StringBuilder("jdbc:");
         switch (this.connectionVO.getDatabaseType()) {
             case MYSQL_NAME:
                 builder.append("mysql://");
@@ -32,7 +32,7 @@ public class ConnectionDTO {
         }
         builder.append(this.connectionVO.getHost()).append(":");
         builder.append(this.connectionVO.getPort()).append("/");
-        builder.append(this.connectionVO.getDatabase()).append("?characterEncoding=UTF-8");
+        builder.append(this.connectionVO.getDatabase()).append("?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai");
         return builder.toString();
     }
 

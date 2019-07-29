@@ -5,6 +5,11 @@ spring:
       suffix: .html
   thymeleaf:
     cache: false
+  datasource:
+    druid:
+      initial-size: 5
+      max-active: 10
+      max-wait: 3000
 server:
   port: 8188
   servlet:
