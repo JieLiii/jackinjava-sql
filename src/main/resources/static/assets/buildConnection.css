@@ -23,3 +23,13 @@
     color: green;
     font-size: 12px;
 }
+.tree-table {
+    float: left;
+    min-width: 400px;
+    min-height: 356px;
+}
+
+.form-div {
+    width: 400px;
+    float: left;
+}

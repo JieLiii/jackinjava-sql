@@ -20,7 +20,8 @@ new Vue({
       props: {
         label: 'name',
         children: 'tables'
-      }
+      },
+      visible: false
     }
   },
   methods: {
@@ -51,6 +52,13 @@ new Vue({
         axios.get(me.columnsUrl, {params: {databaseName: node.parent.data.name, tableName: node.data.name}}).then(function (rs) {
           return resolve(rs.data);
         });
+      }
+    },
+    handleNodeClick: function (data, node) {
+      if(node.level === 2){
+        alert("这是表")
+      } else {
+        return
       }
     }
   }
